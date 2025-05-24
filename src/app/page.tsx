@@ -3,6 +3,7 @@
 
 //react
 import { BugAntIcon } from '@heroicons/react/20/solid'
+import { useRouter } from "next/navigation";
 
 const imageBackground = '/baile-de-discoteca.png';
 
@@ -14,7 +15,7 @@ const navigation = [
 ]
 
 export default function Home() {
-
+    const router = useRouter();
     return (
         <div className="bg-white">
             {/* Header */}
@@ -49,7 +50,6 @@ export default function Home() {
                             >
                                 <span
                                     className="relative z-10"
-
                                 >
                                     {item.name}
                                 </span>
@@ -64,13 +64,18 @@ export default function Home() {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <a href="#" className="text-sm/6 font-semibold text-white" style={{
-                            textShadow:
-                                '0 0 8px #fff, 0 0 16px #8f5cff, 0 0 32px #8f5cff, 0 0 64px #8f5cff',
-                            color: '#fff',
-                        }}>
-                            Log in <span aria-hidden="true">&rarr;</span>
-                        </a>
+                        <button
+                            onClick={() => router.push('/login')}
+                        >
+                            <a href="#" className="text-sm/6 font-semibold text-white" style={{
+                                textShadow:
+                                    '0 0 8px #fff, 0 0 16px #8f5cff, 0 0 32px #8f5cff, 0 0 64px #8f5cff',
+                                color: '#fff',
+                            }}>
+                                Iniciar sesion <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </button>
+
                     </div>
                 </nav>
             </header>
