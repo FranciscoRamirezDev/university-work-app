@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
@@ -10,9 +11,8 @@ function LoginScreen() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900">
             <div className="min-h-screen w-full flex items-center justify-center bg-gray-900 relative">
-                <button
-                    type="button"
-                    onClick={() => router.back()}
+                <Link
+                    href={"/"}
                     className="absolute top-6 left-6 py-2 px-4 rounded bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold shadow-lg transition hover:scale-105 hover:from-purple-500 hover:to-pink-500 z-10"
                     style={{
                         textShadow: '0 0 8px #fff, 0 0 16px #8f5cff',
@@ -20,7 +20,7 @@ function LoginScreen() {
                     }}
                 >
                     ← Volver
-                </button>
+                </Link>
                 <form className="bg-gray-800 bg-opacity-80 p-8 rounded-xl shadow-lg flex flex-col gap-6 w-full max-w-md border border-purple-500"
                     style={{
                         boxShadow: '0 0 32px 8px #8f5cff, 0 0 64px 16px #8f5cff',
@@ -70,6 +70,19 @@ function LoginScreen() {
                     >
                         Entrar
                     </button>
+                    <div className="text-center mt-4">
+                        <span className="text-gray-300">¿No tienes cuenta?</span>
+                        <button
+                            type="button"
+                            onClick={() => router.push('/register')}
+                            className="ml-2 font-semibold text-pink-400 hover:text-purple-400 transition underline"
+                            style={{
+                                textShadow: '0 0 8px #fff, 0 0 16px #8f5cff',
+                            }}
+                        >
+                            Regístrate
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

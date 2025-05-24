@@ -101,7 +101,7 @@ export default function Home() {
                                     Nocturno App
                                 </h1>
                                 <p className="mt-8 text-pretty text-lg font-medium text-gray-400 sm:text-xl/8">
-                                    El mejor aliado para reservar tus salidas
+                                    Reserva tus noches sin complicaciones, con el mejor aliado para tus planes nocturnos.
                                 </p>
 
                             </div>
