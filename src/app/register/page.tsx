@@ -1,8 +1,15 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
 export default function RegisterPage() {
+
+    //router
+    const router = useRouter();
+
+    //useState
     const [form, setForm] = useState({
         nombre: '',
         correo: '',
@@ -11,13 +18,30 @@ export default function RegisterPage() {
         ciudad: '',
     });
 
+    //functions
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Registro enviado');
+
+        try {
+            const res = await axios.post('/api/register', form, {
+                headers: { 'Content-Type': 'application/json' },
+            });
+            if (res?.status === 200) {
+                sessionStorage.setItem('userCredentials', JSON.stringify({
+                    correo: form.correo,
+                    contrasena: form.contrasena,
+                }));
+                router.push('/login')
+
+            }
+        } catch (error) {
+            console.error('Error al registrar usuario', error);
+        }
+
     };
 
     return (
