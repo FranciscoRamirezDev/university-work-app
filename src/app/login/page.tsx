@@ -1,12 +1,37 @@
-"use client"
+'use client';
+
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
+import axios from 'axios'
+
 
 function LoginScreen() {
+    //useState
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    //functions
+    const handleSubmit = async () => {
+        try {
+            const res = await axios.post('/api/login', {
+                correo: email,
+                contrasena: password,
+            });
+
+            if (res?.status === 200 && !res.data.error) {
+                router.push('/reserve');
+            } else {
+                alert('Correo o contraseña incorrectos');
+            }
+        } catch (error) {
+            console.error('Error al iniciar sesión', error);
+            alert('Error al iniciar sesión');
+        }
+    };
+
+
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900">
@@ -24,6 +49,10 @@ function LoginScreen() {
                 <form className="bg-gray-800 bg-opacity-80 p-8 rounded-xl shadow-lg flex flex-col gap-6 w-full max-w-md border border-purple-500"
                     style={{
                         boxShadow: '0 0 32px 8px #8f5cff, 0 0 64px 16px #8f5cff',
+                    }}
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        handleSubmit();
                     }}
                 >
                     <h2 className="text-3xl font-bold text-center text-white mb-4"

@@ -37,7 +37,6 @@ export default function RegisterPage() {
                     full_name: form.nombre
                 }));
                 router.push('/login')
-
             }
         } catch (error) {
             console.error('Error al registrar usuario', error);
