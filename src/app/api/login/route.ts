@@ -5,8 +5,8 @@ export async function POST(req: NextRequest) {
     console.log(correo, contrasena);
 
     const userInfo = {
-        correo: 'francisco.ramirez@dropi.co',
-        contrasena: 'Dominick1801',
+        correo: 'ejemplo@email.com',
+        contrasena: '12345678',
     };
 
     if (correo === userInfo.correo && contrasena === userInfo.contrasena) {
