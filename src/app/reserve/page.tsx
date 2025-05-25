@@ -1,9 +1,17 @@
 'use client';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 function ReserveScreen() {
 
+    //navigation
+    const router = useRouter();
+
+    const handleReserve = () => {
+        alert('Reserva realizada existosamente, que disfrutes tu noche!!')
+        router.push('/')
+    }
     return (
         <div>
             <Link
@@ -43,6 +51,7 @@ function ReserveScreen() {
                     Bogotá
                 </span>
                 <button
+                    onClick={() => handleReserve()}
                     className="mt-3 py-2 bg-[#8f5cff] text-white rounded-md font-bold cursor-pointer text-lg hover:bg-[#7a4be3] transition p-2"
                 >
                     Reservar

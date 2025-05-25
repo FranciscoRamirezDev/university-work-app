@@ -7,8 +7,10 @@ import axios from 'axios'
 
 
 function LoginScreen() {
-    //useState
+    //navigation
     const router = useRouter();
+
+    //useState
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -21,6 +23,7 @@ function LoginScreen() {
             });
 
             if (res?.status === 200 && !res.data.error) {
+                alert('Ingreso Existoso!')
                 router.push('/reserve');
             } else {
                 alert('Correo o contraseña incorrectos');

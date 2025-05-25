@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 
 export default function RegisterPage() {
 
-    //router
+    //navigation
     const router = useRouter();
 
     //useState
@@ -36,10 +36,12 @@ export default function RegisterPage() {
                     contrasena: form.contrasena,
                     full_name: form.nombre
                 }));
+                alert('Usuario registrado existosamente')
                 router.push('/login')
             }
         } catch (error) {
             console.error('Error al registrar usuario', error);
+            alert('Ha ocurrido un error, intenta de nuevo')
         }
 
     };
