@@ -31,9 +31,10 @@ export default function RegisterPage() {
                 headers: { 'Content-Type': 'application/json' },
             });
             if (res?.status === 200) {
-                sessionStorage.setItem('userCredentials', JSON.stringify({
+                sessionStorage.setItem('userInfo', JSON.stringify({
                     correo: form.correo,
                     contrasena: form.contrasena,
+                    full_name: form.nombre
                 }));
                 router.push('/login')
 
