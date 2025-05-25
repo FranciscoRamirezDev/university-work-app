@@ -19,3 +19,20 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.neon-text {
+  text-shadow:
+    0 0 5px #8f5cff,
+    0 0 10px #8f5cff,
+    0 0 20px #8f5cff,
+    0 0 40px #8f5cff;
+}
+
+.shadow-neon {
+  box-shadow: 0 0 15px #8f5cff;
+}
+
+.shadow-inner-neon {
+  box-shadow: inset 0 0 15px #8f5cff;
+}
+
