@@ -75,9 +75,9 @@ function LoginScreen() {
                         <button
                             type="button"
                             onClick={() => router.push('/register')}
-                            className="ml-2 font-semibold text-pink-400 hover:text-purple-400 transition underline"
+                            className="text-sm font-bold text-center text-white mb-6"
                             style={{
-                                textShadow: '0 0 8px #fff, 0 0 16px #8f5cff',
+                                textShadow: '0 0 8px #fff, 0 0 16px #8f5cff, 0 0 32px #8f5cff',
                             }}
                         >
                             Regístrate
