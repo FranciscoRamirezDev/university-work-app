@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
 
     const userInfo = {
         correo: 'ejemplo@email.com',
-        contrasena: '12345678',
+        contrasena: '123456789',
     };
 
     if (correo === userInfo.correo && contrasena === userInfo.contrasena) {
