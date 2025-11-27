@@ -103,7 +103,7 @@ function LoginScreen() {
                         />
                         <button
                             type="submit"
-                            className="mt-4 py-3 px-6 rounded bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-lg shadow-lg transition hover:scale-105 hover:from-pink-500 hover:to-purple-500"
+                            className="mt-4 py-3 px-6 rounded bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold text-lg shadow-lg transition hover:scale-105 hover:from-pink-500 hover:to-purple-500"
                             style={{
                                 textShadow: '0 0 8px #fff, 0 0 16px #8f5cff',
                                 boxShadow: '0 0 16px 4px #8f5cff',
