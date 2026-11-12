@@ -2,8 +2,44 @@
 'use client'
 
 //react
-import { BugAntIcon } from '@heroicons/react/20/solid'
+import type { SVGProps } from 'react'
 import { useRouter } from "next/navigation";
+
+// Icono personalizado: gato negro sentado (elegante, independiente, místico)
+// Silueta negra con halo neón morado y ojos amarillos de cazador.
+function BlackCatIcon(props: SVGProps<SVGSVGElement>) {
+    return (
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" {...props}>
+            <defs>
+                <radialGradient id="black-cat-iris" cx="50%" cy="55%" r="60%">
+                    <stop offset="0%" stopColor="#fef08a" />
+                    <stop offset="50%" stopColor="#facc15" />
+                    <stop offset="100%" stopColor="#d97706" />
+                </radialGradient>
+            </defs>
+            {/* Cola enroscada */}
+            <path
+                d="M24 28 Q30 27 29 21 Q28.5 18 30 16"
+                stroke="#0a0a0f"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+            />
+            {/* Silueta: orejas puntiagudas, cabeza y cuerpo sentado */}
+            <path
+                d="M9 3 L12.5 7.5 Q16 6.5 19.5 7.5 L23 3 L24 10 Q24.5 14.5 21 16.5
+                   Q25 20 25 26 Q25 29.5 22 30 L10 30 Q7 29.5 7 26 Q7 20 11 16.5
+                   Q7.5 14.5 8 10 Z"
+                fill="#0a0a0f"
+            />
+            {/* Ojos rasgados de cazador */}
+            <path d="M11 10.5 Q13 10 15 11.8 Q12.8 13 11 10.5 Z" fill="url(#black-cat-iris)" />
+            <path d="M21 10.5 Q19 10 17 11.8 Q19.2 13 21 10.5 Z" fill="url(#black-cat-iris)" />
+            {/* Pupilas en rendija */}
+            <ellipse cx="13.2" cy="11.4" rx="0.3" ry="1" fill="#0a0a0f" />
+            <ellipse cx="18.8" cy="11.4" rx="0.3" ry="1" fill="#0a0a0f" />
+        </svg>
+    )
+}
 
 const imageBackground = '/baile-de-discoteca.png';
 
@@ -32,13 +68,13 @@ export default function Home() {
                         >
                             Nocturno
                         </div>
-                        <BugAntIcon className='w-5 h-5'
+                        <BlackCatIcon
+                            className='ml-2 w-8 h-8'
                             style={{
-                                textShadow:
-                                    '0 0 8px #fff, 0 0 16px #8f5cff, 0 0 32px #8f5cff, 0 0 64px #8f5cff',
-                                color: '#fff',
+                                filter:
+                                    'drop-shadow(0 0 1px #c4b5fd) drop-shadow(0 0 6px #8f5cff) drop-shadow(0 0 12px #8f5cff)',
                             }}
-                        ></BugAntIcon>
+                        />
                     </div>
 
                     <div className="hidden lg:flex lg:gap-x-12">
@@ -98,7 +134,7 @@ export default function Home() {
                                         color: '#fff',
                                     }}
                                 >
-                                    Nocturno App
+                                    NocTurno
                                 </h1>
                                 <p className="mt-8 text-pretty text-lg font-medium text-gray-400 sm:text-xl/8">
                                     Reserva tus noches sin complicaciones, con el mejor aliado para tus planes nocturnos.
